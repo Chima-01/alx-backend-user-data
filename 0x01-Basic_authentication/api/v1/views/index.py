@@ -31,3 +31,11 @@ def raise_unauthorized():
     """ raise unauthorized error
     """
     abort(401)
+
+
+@app_views.route('/forbidden/', methods=['GET'], strict_slashes=False)
+def unauthorized_acess():
+    """
+        trigger an unauthorized_access error
+    """
+    abort(403)
