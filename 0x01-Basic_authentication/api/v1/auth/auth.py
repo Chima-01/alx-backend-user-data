@@ -2,7 +2,7 @@
 """
  Implement a basic Auth
 """
-from flask import request
+from flask import Flask
 from typing import List, TypeVar
 
 
@@ -24,6 +24,8 @@ class Auth:
     def authorization_header(self, request=None) -> str:
         """ returns None
         """
+        if request is not None:
+            return request.headers.get('Authorization', None)
         return None
 
     def current_user(self, request=None) -> TypeVar('User'):
